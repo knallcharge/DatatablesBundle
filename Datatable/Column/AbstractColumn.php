@@ -398,7 +398,7 @@ abstract class AbstractColumn implements ColumnInterface
      */
     public function isToManyAssociation(): bool
     {
-        if ($this->isAssociation() === true && $this->typeOfAssociation !== null) {
+        if ($this->typeOfAssociation !== null && $this->isAssociation() === true) {
             return in_array(ClassMetadata::ONE_TO_MANY, $this->typeOfAssociation, true) || in_array(ClassMetadata::MANY_TO_MANY, $this->typeOfAssociation, true);
         }
 

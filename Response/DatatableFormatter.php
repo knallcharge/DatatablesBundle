@@ -86,7 +86,7 @@ class DatatableFormatter
                 $data = $column->getData();
 
                 // @noinspection PhpUndefinedMethodInspection
-                if (($column->isAssociation() === false) && $dql !== null && $dql !== $data && array_key_exists($data, $row) === false) {
+                if ($dql !== null && $dql !== $data && array_key_exists($data, $row) === false && ($column->isAssociation() === false)) {
                     $row[$data] = $row[$dql];
                     unset($row[$dql]);
                 }

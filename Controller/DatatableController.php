@@ -107,19 +107,17 @@ class DatatableController extends AbstractController
 
     /**
      * @return bool|DateTime|float|int|string|null
-     * @throws Exception
      *
+     * @throws Exception
      */
     private function normalizeValue(string $originalTypeOfField, $value)
     {
         switch ($originalTypeOfField) {
             case Types::DATETIME_MUTABLE:
                 $value = new DateTime($value);
-
                 break;
             case Types::BOOLEAN:
                 $value = $this->strToBool($value);
-
                 break;
             case Types::TEXT:
             case Types::STRING:
@@ -127,16 +125,13 @@ class DatatableController extends AbstractController
             case Types::SMALLINT:
             case Types::INTEGER:
                 $value = (int)$value;
-
                 break;
             case Types::BIGINT:
                 $value = (string)$value;
-
                 break;
             case Types::FLOAT:
             case Types::DECIMAL:
                 $value = (float)$value;
-
                 break;
             default:
                 throw new Exception("DatatableController::prepareValue(): The field type $originalTypeOfField is not editable.");
