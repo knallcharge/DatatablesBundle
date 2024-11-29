@@ -20,6 +20,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 use function is_array;
 use function is_bool;
@@ -153,7 +154,7 @@ class ActionColumn extends AbstractColumn
                 'render_if_actions'    => $row['sg_datatables_actions'][$this->index],
                 'start_html_container' => $this->startHtml,
                 'end_html_container'   => $this->endHtml,
-            ]
+            ],
         );
     }
 
@@ -211,9 +212,9 @@ class ActionColumn extends AbstractColumn
         $resolver->setRequired(['actions']);
 
         $resolver->setDefaults([
-            'start_html' => null,
-            'end_html'   => null,
-        ]);
+                                   'start_html' => null,
+                                   'end_html'   => null,
+                               ]);
 
         $resolver->setAllowedTypes('actions', 'array');
         $resolver->setAllowedTypes('start_html', ['null', 'string']);

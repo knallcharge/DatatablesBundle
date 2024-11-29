@@ -37,7 +37,7 @@ class DatatableController extends AbstractController
      *
      * @Route("/datatables/edit/field", methods={"POST"}, name="sg_datatables_edit")
      *
-     * @param Request $request
+     * @param Request                $request
      * @param EntityManagerInterface $entityManager
      *
      * @return Response

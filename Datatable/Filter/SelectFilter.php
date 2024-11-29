@@ -15,6 +15,7 @@ use Doctrine\ORM\Query\Expr\Andx;
 use Doctrine\ORM\QueryBuilder;
 use Exception;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function count;
 use function is_array;
 
@@ -98,10 +99,10 @@ class SelectFilter extends AbstractFilter
         $resolver->remove('placeholder_text');
 
         $resolver->setDefaults([
-            'select_search_types' => [],
-            'select_options'      => [],
-            'multiple'            => false,
-        ]);
+                                   'select_search_types' => [],
+                                   'select_options'      => [],
+                                   'multiple'            => false,
+                               ]);
 
         $resolver->setAllowedTypes('select_search_types', 'array');
         $resolver->setAllowedTypes('select_options', 'array');

@@ -15,6 +15,7 @@ use Exception;
 use JsonException;
 use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function count;
 use function is_array;
 
@@ -63,9 +64,9 @@ class Buttons
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'show_buttons'   => null,
-            'create_buttons' => null,
-        ]);
+                                   'show_buttons'   => null,
+                                   'create_buttons' => null,
+                               ]);
 
         $resolver->setAllowedTypes('show_buttons', ['null', 'array']);
         $resolver->setAllowedTypes('create_buttons', ['null', 'array']);

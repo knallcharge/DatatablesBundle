@@ -18,6 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 use function is_float;
 
@@ -97,7 +98,7 @@ class NumberColumn extends Column
                     $content = $this->renderTemplate(
                         $this->accessor->getValue($row, $currentPath),
                         $row[$this->editable->getPk()],
-                        $currentObjectPath
+                        $currentObjectPath,
                     );
                 } else {
                     $content = $this->renderTemplate($this->accessor->getValue($row, $currentPath));
@@ -127,7 +128,7 @@ class NumberColumn extends Column
             [
                 'use_format_currency' => false,
                 'currency'            => null,
-            ]
+            ],
         );
 
         $resolver->setAllowedTypes('formatter', ['object']);
@@ -215,8 +216,8 @@ class NumberColumn extends Column
      * Render template.
      *
      * @param string|float|null $data
-     * @param null $pk
-     * @param null $path
+     * @param null              $pk
+     * @param null              $path
      *
      * @return string
      * @throws LoaderError
@@ -247,7 +248,7 @@ class NumberColumn extends Column
                 'column_class_editable_selector' => $this->getColumnClassEditableSelector(),
                 'pk'                             => $pk,
                 'path'                           => $path,
-            ]
+            ],
         );
     }
 }

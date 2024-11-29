@@ -29,7 +29,7 @@ interface FilterInterface
      *
      * @param string $searchField
      * @param string $searchTypeOfField
-     * @param int $parameterCounter
+     * @param int    $parameterCounter
      *
      * @return Andx
      */

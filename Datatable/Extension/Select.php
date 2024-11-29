@@ -95,7 +95,7 @@ class Select
                 'items'      => null,
                 'selector'   => null,
                 'style'      => null,
-            ]
+            ],
         );
 
         $resolver->setAllowedTypes('blurable', ['boolean', 'null']);

@@ -21,6 +21,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 use function is_string;
 
@@ -99,7 +100,7 @@ class DateTimeColumn extends AbstractColumn
                         $content = $this->renderTemplate(
                             $this->accessor->getValue($row, $currentPath),
                             $row[$this->editable->getPk()],
-                            $currentObjectPath
+                            $currentObjectPath,
                         );
                     } else {
                         $content = $this->renderTemplate($this->accessor->getValue($row, $currentPath));
@@ -138,7 +139,7 @@ class DateTimeColumn extends AbstractColumn
                     'entity_class_name'              => $this->getEntityClassName(),
                     'column_dql'                     => $this->dql,
                     'original_type_of_field'         => $this->getOriginalTypeOfField(),
-                ]
+                ],
             );
         }
 
@@ -157,11 +158,11 @@ class DateTimeColumn extends AbstractColumn
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'date_format' => 'lll',
-            'timeago'     => false,
-            'filter'      => [TextFilter::class, []],
-            'editable'    => null,
-        ]);
+                                   'date_format' => 'lll',
+                                   'timeago'     => false,
+                                   'filter'      => [TextFilter::class, []],
+                                   'editable'    => null,
+                               ]);
 
         $resolver->setAllowedTypes('date_format', 'string');
         $resolver->setAllowedTypes('timeago', 'bool');
@@ -233,8 +234,8 @@ class DateTimeColumn extends AbstractColumn
      * Render template.
      *
      * @param string|null $data
-     * @param null $pk
-     * @param null $path
+     * @param null        $pk
+     * @param null        $path
      *
      * @return string
      * @throws LoaderError
@@ -264,7 +265,7 @@ class DateTimeColumn extends AbstractColumn
 
         return $this->twig->render(
             $this->getCellContentTemplate(),
-            $renderVars
+            $renderVars,
         );
     }
 }

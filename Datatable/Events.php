@@ -13,6 +13,7 @@ namespace Sg\DatatablesBundle\Datatable;
 
 use Exception;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -154,22 +155,22 @@ class Events
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'column_sizing'     => null,
-            'column_visibility' => null,
-            'destroy'           => null,
-            'error'             => null,
-            'length'            => null,
-            'order'             => null,
-            'page'              => null,
-            'pre_init'          => null,
-            'pre_xhr'           => null,
-            'processing'        => null,
-            'search'            => null,
-            'state_loaded'      => null,
-            'state_load_params' => null,
-            'state_save_params' => null,
-            'xhr'               => null,
-        ]);
+                                   'column_sizing'     => null,
+                                   'column_visibility' => null,
+                                   'destroy'           => null,
+                                   'error'             => null,
+                                   'length'            => null,
+                                   'order'             => null,
+                                   'page'              => null,
+                                   'pre_init'          => null,
+                                   'pre_xhr'           => null,
+                                   'processing'        => null,
+                                   'search'            => null,
+                                   'state_loaded'      => null,
+                                   'state_load_params' => null,
+                                   'state_save_params' => null,
+                                   'xhr'               => null,
+                               ]);
 
         $resolver->setAllowedTypes('column_sizing', ['null', 'array']);
         $resolver->setAllowedTypes('column_visibility', ['null', 'array']);

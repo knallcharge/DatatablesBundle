@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable;
 use Exception;
 use JsonException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -258,30 +259,30 @@ class Options
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'defer_loading'                 => null,
-            'display_start'                 => null,
-            'dom'                           => null,
-            'length_menu'                   => null,
-            'order'                         => null,
-            'order_cells_top'               => null,
-            'order_classes'                 => null,
-            'order_fixed'                   => null,
-            'order_multi'                   => null,
-            'page_length'                   => null,
-            'paging_type'                   => null,
-            'renderer'                      => null,
-            'retrieve'                      => null,
-            'row_id'                        => null,
-            'scroll_collapse'               => null,
-            'search_delay'                  => null,
-            'state_duration'                => null,
-            'stripe_classes'                => null,
-            'classes'                       => Style::BASE_STYLE,
-            'individual_filtering'          => false,
-            'individual_filtering_position' => 'head',
-            'search_in_non_visible_columns' => false,
-            'global_search_type'            => 'like',
-        ]);
+                                   'defer_loading'                 => null,
+                                   'display_start'                 => null,
+                                   'dom'                           => null,
+                                   'length_menu'                   => null,
+                                   'order'                         => null,
+                                   'order_cells_top'               => null,
+                                   'order_classes'                 => null,
+                                   'order_fixed'                   => null,
+                                   'order_multi'                   => null,
+                                   'page_length'                   => null,
+                                   'paging_type'                   => null,
+                                   'renderer'                      => null,
+                                   'retrieve'                      => null,
+                                   'row_id'                        => null,
+                                   'scroll_collapse'               => null,
+                                   'search_delay'                  => null,
+                                   'state_duration'                => null,
+                                   'stripe_classes'                => null,
+                                   'classes'                       => Style::BASE_STYLE,
+                                   'individual_filtering'          => false,
+                                   'individual_filtering_position' => 'head',
+                                   'search_in_non_visible_columns' => false,
+                                   'global_search_type'            => 'like',
+                               ]);
 
         $resolver->setAllowedTypes('defer_loading', ['null', 'int', 'array']);
         $resolver->setAllowedTypes('display_start', ['null', 'int']);

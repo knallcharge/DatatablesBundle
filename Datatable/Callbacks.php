@@ -13,6 +13,7 @@ namespace Sg\DatatablesBundle\Datatable;
 
 use Exception;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -144,21 +145,21 @@ class Callbacks
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'created_row' => null,
-            'draw_callback' => null,
-            'footer_callback' => null,
-            'format_number' => null,
-            'header_callback' => null,
-            'info_callback' => null,
-            'init_complete' => null,
-            'pre_draw_callback' => null,
-            'row_callback' => null,
-            'state_load_callback' => null,
-            'state_loaded' => null,
-            'state_load_params' => null,
-            'state_save_callback' => null,
-            'state_save_params' => null,
-        ]);
+                                   'created_row'         => null,
+                                   'draw_callback'       => null,
+                                   'footer_callback'     => null,
+                                   'format_number'       => null,
+                                   'header_callback'     => null,
+                                   'info_callback'       => null,
+                                   'init_complete'       => null,
+                                   'pre_draw_callback'   => null,
+                                   'row_callback'        => null,
+                                   'state_load_callback' => null,
+                                   'state_loaded'        => null,
+                                   'state_load_params'   => null,
+                                   'state_save_callback' => null,
+                                   'state_save_params'   => null,
+                               ]);
 
         $resolver->setAllowedTypes('created_row', ['null', 'array']);
         $resolver->setAllowedTypes('draw_callback', ['null', 'array']);

@@ -20,6 +20,7 @@ use ReflectionException;
 use Sg\DatatablesBundle\Datatable\Factory;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
+
 use function array_key_exists;
 use function count;
 
@@ -116,7 +117,7 @@ class ColumnBuilder
     /**
      * Add Column.
      *
-     * @param string|null $dql
+     * @param string|null            $dql
      * @param ColumnInterface|string $class
      *
      * @return $this
@@ -218,7 +219,7 @@ class ColumnBuilder
     /**
      * Get metadata from association.
      *
-     * @param string $association
+     * @param string        $association
      * @param ClassMetadata $metadata
      *
      * @return ClassMetadata
@@ -233,9 +234,9 @@ class ColumnBuilder
     }
 
     /**
-     * @param ClassMetadata $metadata
+     * @param ClassMetadata  $metadata
      * @param AbstractColumn $column
-     * @param string $field
+     * @param string         $field
      *
      * @return void
      */
@@ -251,8 +252,8 @@ class ColumnBuilder
     /**
      * Handle dql properties.
      *
-     * @param string $dql
-     * @param array $options
+     * @param string         $dql
+     * @param array          $options
      * @param AbstractColumn $column
      *
      * @return void
@@ -289,7 +290,7 @@ class ColumnBuilder
     /**
      * Sets some types.
      *
-     * @param string $dql
+     * @param string         $dql
      * @param AbstractColumn $column
      *
      * @return void
@@ -324,7 +325,7 @@ class ColumnBuilder
     /**
      * Adds a Column.
      *
-     * @param string $dql
+     * @param string         $dql
      * @param AbstractColumn $column
      *
      * @return void
@@ -351,7 +352,7 @@ class ColumnBuilder
     /**
      * Removes a Column.
      *
-     * @param string $dql
+     * @param string         $dql
      * @param AbstractColumn $column
      *
      * @return void

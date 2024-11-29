@@ -132,10 +132,10 @@ class Language
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'cdn_language_by_locale' => false,
-            'language_by_locale'     => false,
-            'language'               => null,
-        ]);
+                                   'cdn_language_by_locale' => false,
+                                   'language_by_locale'     => false,
+                                   'language'               => null,
+                               ]);
 
         $resolver->setAllowedTypes('cdn_language_by_locale', 'bool');
         $resolver->setAllowedTypes('language_by_locale', 'bool');

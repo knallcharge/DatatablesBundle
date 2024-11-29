@@ -19,6 +19,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 
 /**
@@ -169,13 +170,13 @@ class ImageColumn extends AbstractColumn
         $resolver->setRequired(['relative_path']);
 
         $resolver->setDefaults([
-            'filter'                  => [TextFilter::class, []],
-            'imagine_filter_enlarged' => null,
-            'holder_url'              => null,
-            'holder_width'            => '50',
-            'holder_height'           => '50',
-            'enlarge'                 => false,
-        ]);
+                                   'filter'                  => [TextFilter::class, []],
+                                   'imagine_filter_enlarged' => null,
+                                   'holder_url'              => null,
+                                   'holder_width'            => '50',
+                                   'holder_height'           => '50',
+                                   'enlarge'                 => false,
+                               ]);
 
         $resolver->setAllowedTypes('filter', 'array');
         $resolver->setAllowedTypes('imagine_filter', 'string');
@@ -364,7 +365,7 @@ class ImageColumn extends AbstractColumn
                 'data'        => $data,
                 'image'       => $this,
                 'image_class' => 'sg-datatables-' . $this->getDatatableName() . $classSuffix,
-            ]
+            ],
         );
     }
 }

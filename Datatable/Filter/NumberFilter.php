@@ -81,13 +81,13 @@ class NumberFilter extends TextFilter
         $resolver->remove('placeholder_text');
 
         $resolver->setDefaults([
-            'min'        => '0',
-            'max'        => '100',
-            'step'       => '1',
-            'show_label' => false,
-            'datalist'   => null,
-            'type'       => 'number',
-        ]);
+                                   'min'        => '0',
+                                   'max'        => '100',
+                                   'step'       => '1',
+                                   'show_label' => false,
+                                   'datalist'   => null,
+                                   'type'       => 'number',
+                               ]);
 
         $resolver->setAllowedTypes('min', 'string');
         $resolver->setAllowedTypes('max', 'string');

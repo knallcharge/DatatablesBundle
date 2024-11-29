@@ -51,7 +51,7 @@ final class DatatableTest extends TestCase
         $em = $this->getMockBuilder(EntityManager::class)
                    ->disableOriginalConstructor()
                    ->setMethods(
-                       ['getClassMetadata']
+                       ['getClassMetadata'],
                    )
                    ->getMock();
 
@@ -81,7 +81,7 @@ final class DatatableTest extends TestCase
         $em = $this->getMockBuilder(EntityManager::class)
                    ->disableOriginalConstructor()
                    ->setMethods(
-                       ['getClassMetadata']
+                       ['getClassMetadata'],
                    )
                    ->getMock();
 

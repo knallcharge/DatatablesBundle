@@ -18,6 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function array_key_exists;
 use function count;
 use function is_array;
@@ -116,7 +117,7 @@ class MultiselectColumn extends ActionColumn
                 'start_html'     => $this->startHtml,
                 'end_html'       => $this->endHtml,
                 'render_if_cbox' => $row['sg_datatables_cbox'],
-            ]
+            ],
         );
     }
 
@@ -161,12 +162,12 @@ class MultiselectColumn extends ActionColumn
         $resolver->remove('title');
 
         $resolver->setDefaults([
-            'attributes'           => null,
-            'value'                => 'id',
-            'value_prefix'         => false,
-            'render_actions_to_id' => null,
-            'render_if'            => null,
-        ]);
+                                   'attributes'           => null,
+                                   'value'                => 'id',
+                                   'value_prefix'         => false,
+                                   'render_actions_to_id' => null,
+                                   'render_if'            => null,
+                               ]);
 
         $resolver->setAllowedTypes('attributes', ['null', 'array']);
         $resolver->setAllowedTypes('value', 'string');

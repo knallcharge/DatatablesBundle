@@ -19,6 +19,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
+
 use function get_class;
 use function gettype;
 use function in_array;
@@ -73,26 +74,32 @@ class DatatableFactory
 
     /**
      * @param AuthorizationCheckerInterface $authorizationChecker
-     * @param TokenStorageInterface $securityToken
-     * @param $translator
-     * @param RouterInterface $router
-     * @param EntityManagerInterface $em
-     * @param Environment $twig
+     * @param TokenStorageInterface         $securityToken
+     * @param                               $translator
+     * @param RouterInterface               $router
+     * @param EntityManagerInterface        $em
+     * @param Environment                   $twig
      */
     public function __construct(
         AuthorizationCheckerInterface $authorizationChecker,
-        TokenStorageInterface $securityToken,
-        $translator,
-        RouterInterface $router,
-        EntityManagerInterface $em,
-        Environment $twig
+        TokenStorageInterface         $securityToken,
+                                      $translator,
+        RouterInterface               $router,
+        EntityManagerInterface        $em,
+        Environment                   $twig,
     ) {
         $this->authorizationChecker = $authorizationChecker;
         $this->securityToken        = $securityToken;
 
         if (!($translator instanceof TranslatorInterface)) {
-            throw new InvalidArgumentException(sprintf('The $translator argument of %s must be an instance of %s, a %s was given.', static::class,
-                TranslatorInterface::class, get_class($translator)));
+            throw new InvalidArgumentException(
+                sprintf(
+                    'The $translator argument of %s must be an instance of %s, a %s was given.',
+                    static::class,
+                    TranslatorInterface::class,
+                    get_class($translator),
+                ),
+            );
         }
         $this->translator = $translator;
         $this->router     = $router;
@@ -130,7 +137,7 @@ class DatatableFactory
                 $this->translator,
                 $this->router,
                 $this->em,
-                $this->twig
+                $this->twig,
             );
         }
 

@@ -20,6 +20,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 use function in_array;
 
@@ -122,7 +123,7 @@ class BooleanColumn extends AbstractColumn
                         $content = $this->renderTemplate(
                             $this->accessor->getValue($row, $currentPath),
                             $row[$this->editable->getPk()],
-                            $currentObjectPath
+                            $currentObjectPath,
                         );
                     } else {
                         $content = $this->renderTemplate($this->accessor->getValue($row, $currentPath));
@@ -161,7 +162,7 @@ class BooleanColumn extends AbstractColumn
                     'entity_class_name'              => $this->getEntityClassName(),
                     'column_dql'                     => $this->dql,
                     'original_type_of_field'         => $this->getOriginalTypeOfField(),
-                ]
+                ],
             );
         }
 
@@ -193,7 +194,7 @@ class BooleanColumn extends AbstractColumn
                 'true_label'  => null,
                 'false_label' => null,
                 'editable'    => null,
-            ]
+            ],
         );
 
         $resolver->setAllowedTypes('filter', 'array');
@@ -314,8 +315,8 @@ class BooleanColumn extends AbstractColumn
      * Render template.
      *
      * @param string|null $data
-     * @param null $pk
-     * @param null $path
+     * @param null        $pk
+     * @param null        $path
      *
      * @return string
      * @throws LoaderError
@@ -345,7 +346,7 @@ class BooleanColumn extends AbstractColumn
 
         return $this->twig->render(
             $this->getCellContentTemplate(),
-            $renderVars
+            $renderVars,
         );
     }
 }

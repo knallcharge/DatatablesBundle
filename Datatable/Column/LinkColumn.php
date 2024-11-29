@@ -17,6 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function call_user_func;
 use function count;
 use function in_array;
@@ -233,15 +234,15 @@ class LinkColumn extends AbstractColumn
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'filter'         => [TextFilter::class, []],
-            'route'          => '',
-            'route_params'   => [],
-            'empty_value'    => '',
-            'text'           => null,
-            'separator'      => '',
-            'filterFunction' => null,
-            'email'          => false,
-        ]);
+                                   'filter'         => [TextFilter::class, []],
+                                   'route'          => '',
+                                   'route_params'   => [],
+                                   'empty_value'    => '',
+                                   'text'           => null,
+                                   'separator'      => '',
+                                   'filterFunction' => null,
+                                   'email'          => false,
+                               ]);
 
         $resolver->setAllowedTypes('filter', 'array');
         $resolver->setAllowedTypes('route', 'string');
@@ -431,7 +432,7 @@ class LinkColumn extends AbstractColumn
             $this->getCellContentTemplate(),
             [
                 'data' => $data,
-            ]
+            ],
         );
     }
 }

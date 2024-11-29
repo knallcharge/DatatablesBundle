@@ -47,8 +47,8 @@ final class ArrayColumnTest extends TestCase
     }
 
     /**
-     * @param $obj
-     * @param $name
+     * @param       $obj
+     * @param       $name
      * @param array $args
      *
      * @return mixed

@@ -22,6 +22,7 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Environment;
+
 use function get_class;
 
 /**
@@ -156,11 +157,11 @@ abstract class AbstractDatatable implements DatatableInterface
      */
     public function __construct(
         AuthorizationCheckerInterface $authorizationChecker,
-        TokenStorageInterface $securityToken,
-        $translator,
-        RouterInterface $router,
-        EntityManagerInterface $em,
-        Environment $twig
+        TokenStorageInterface         $securityToken,
+                                      $translator,
+        RouterInterface               $router,
+        EntityManagerInterface        $em,
+        Environment                   $twig,
     ) {
         $this->validateName();
 
@@ -175,8 +176,14 @@ abstract class AbstractDatatable implements DatatableInterface
         $this->securityToken        = $securityToken;
 
         if (!($translator instanceof TranslatorInterface)) {
-            throw new InvalidArgumentException(sprintf('The $translator argument of %s must be an instance of %s, a %s was given.', static::class,
-                TranslatorInterface::class, get_class($translator)));
+            throw new InvalidArgumentException(
+                sprintf(
+                    'The $translator argument of %s must be an instance of %s, a %s was given.',
+                    static::class,
+                    TranslatorInterface::class,
+                    get_class($translator),
+                ),
+            );
         }
         $this->translator = $translator;
         $this->router     = $router;
@@ -326,7 +333,9 @@ abstract class AbstractDatatable implements DatatableInterface
     {
         $name = $this->getName();
         if (preg_match(self::NAME_REGEX, $name) !== 1) {
-            throw new LogicException(sprintf('AbstractDatatable::validateName(): "%s" is invalid Datatable Name. Name can only contain letters, numbers, underscore and dashes.', $name));
+            throw new LogicException(
+                sprintf('AbstractDatatable::validateName(): "%s" is invalid Datatable Name. Name can only contain letters, numbers, underscore and dashes.', $name),
+            );
         }
     }
 }

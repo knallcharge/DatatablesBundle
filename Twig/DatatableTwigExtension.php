@@ -25,6 +25,7 @@ use Twig\Error\SyntaxError;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
+
 use function is_array;
 use function is_bool;
 
@@ -52,7 +53,7 @@ class DatatableTwigExtension extends AbstractExtension
     /**
      * {}
      */
-    public function getName()
+    public function getName(): string
     {
         return 'sg_datatables_twig_extension';
     }
@@ -66,27 +67,27 @@ class DatatableTwigExtension extends AbstractExtension
             new TwigFunction(
                 'sg_datatables_render',
                 [$this, 'datatablesRender'],
-                ['is_safe' => ['html'], 'needs_environment' => true]
+                ['is_safe' => ['html'], 'needs_environment' => true],
             ),
             new TwigFunction(
                 'sg_datatables_render_html',
                 [$this, 'datatablesRenderHtml'],
-                ['is_safe' => ['html'], 'needs_environment' => true]
+                ['is_safe' => ['html'], 'needs_environment' => true],
             ),
             new TwigFunction(
                 'sg_datatables_render_js',
                 [$this, 'datatablesRenderJs'],
-                ['is_safe' => ['html'], 'needs_environment' => true]
+                ['is_safe' => ['html'], 'needs_environment' => true],
             ),
             new TwigFunction(
                 'sg_datatables_render_filter',
                 [$this, 'datatablesRenderFilter'],
-                ['is_safe' => ['html'], 'needs_environment' => true]
+                ['is_safe' => ['html'], 'needs_environment' => true],
             ),
             new TwigFunction(
                 'sg_datatables_render_multiselect_actions',
                 [$this, 'datatablesRenderMultiselectActions'],
-                ['is_safe' => ['html'], 'needs_environment' => true]
+                ['is_safe' => ['html'], 'needs_environment' => true],
             ),
         ];
     }
@@ -108,7 +109,7 @@ class DatatableTwigExtension extends AbstractExtension
     /**
      * Renders the template.
      *
-     * @param Environment $twig
+     * @param Environment        $twig
      * @param DatatableInterface $datatable
      *
      * @return string
@@ -116,20 +117,20 @@ class DatatableTwigExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function datatablesRender(Environment $twig, DatatableInterface $datatable)
+    public function datatablesRender(Environment $twig, DatatableInterface $datatable): string
     {
         return $twig->render(
             '@SgDatatables/datatable/datatable.html.twig',
             [
                 'sg_datatables_view' => $datatable,
-            ]
+            ],
         );
     }
 
     /**
      * Renders the html template.
      *
-     * @param Environment $twig
+     * @param Environment        $twig
      * @param DatatableInterface $datatable
      *
      * @return string
@@ -137,20 +138,20 @@ class DatatableTwigExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function datatablesRenderHtml(Environment $twig, DatatableInterface $datatable)
+    public function datatablesRenderHtml(Environment $twig, DatatableInterface $datatable): string
     {
         return $twig->render(
             '@SgDatatables/datatable/datatable_html.html.twig',
             [
                 'sg_datatables_view' => $datatable,
-            ]
+            ],
         );
     }
 
     /**
      * Renders the js template.
      *
-     * @param Environment $twig
+     * @param Environment        $twig
      * @param DatatableInterface $datatable
      *
      * @return string
@@ -158,30 +159,30 @@ class DatatableTwigExtension extends AbstractExtension
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function datatablesRenderJs(Environment $twig, DatatableInterface $datatable)
+    public function datatablesRenderJs(Environment $twig, DatatableInterface $datatable): string
     {
         return $twig->render(
             '@SgDatatables/datatable/datatable_js.html.twig',
             [
                 'sg_datatables_view' => $datatable,
-            ]
+            ],
         );
     }
 
     /**
      * Renders a Filter template.
      *
-     * @param Environment $twig
+     * @param Environment        $twig
      * @param DatatableInterface $datatable
-     * @param ColumnInterface $column
-     * @param string $position
+     * @param ColumnInterface    $column
+     * @param string             $position
      *
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function datatablesRenderFilter(Environment $twig, DatatableInterface $datatable, ColumnInterface $column, $position)
+    public function datatablesRenderFilter(Environment $twig, DatatableInterface $datatable, ColumnInterface $column, $position): string
     {
         /** @var FilterInterface $filter */
         $filter       = $this->accessor->getValue($column, 'filter');
@@ -202,23 +203,23 @@ class DatatableTwigExtension extends AbstractExtension
                 'search_column_index' => $searchColumnIndex,
                 'datatable_name'      => $datatable->getName(),
                 'position'            => $position,
-            ]
+            ],
         );
     }
 
     /**
      * Renders the MultiselectColumn Actions.
      *
-     * @param Environment $twig
+     * @param Environment     $twig
      * @param ColumnInterface $multiselectColumn
-     * @param int $pipeline
+     * @param int             $pipeline
      *
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
      */
-    public function datatablesRenderMultiselectActions(Environment $twig, ColumnInterface $multiselectColumn, $pipeline)
+    public function datatablesRenderMultiselectActions(Environment $twig, ColumnInterface $multiselectColumn, $pipeline): string
     {
         $parameters    = [];
         $values        = [];
@@ -265,7 +266,7 @@ class DatatableTwigExtension extends AbstractExtension
                 'datatable_name'   => $datatableName,
                 'dom_id'           => $domId,
                 'pipeline'         => $pipeline,
-            ]
+            ],
         );
     }
 

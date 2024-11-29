@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable\Column;
 use Exception;
 use Sg\DatatablesBundle\Datatable\Editable\EditableInterface;
 use Sg\DatatablesBundle\Datatable\Factory;
+
 use function count;
 use function is_array;
 use function is_string;

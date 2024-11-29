@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable\Extension;
 use Exception;
 use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function array_key_exists;
 use function in_array;
 use function is_string;
@@ -120,8 +121,8 @@ class RowGroup
         $resolver->setDefined('start_class_name');
 
         $resolver->setDefaults([
-            'enable' => true,
-        ]);
+                                   'enable' => true,
+                               ]);
 
         $resolver->setAllowedTypes('data_src', ['string']);
         $resolver->setAllowedTypes('start_render', ['array']);

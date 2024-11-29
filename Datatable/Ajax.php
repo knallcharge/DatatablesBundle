@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable;
 use Exception;
 use JsonException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -79,11 +80,11 @@ class Ajax
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'url'      => null,
-            'method'   => 'GET',
-            'data'     => null,
-            'pipeline' => 0,
-        ]);
+                                   'url'      => null,
+                                   'method'   => 'GET',
+                                   'data'     => null,
+                                   'pipeline' => 0,
+                               ]);
 
         $resolver->setAllowedTypes('url', ['null', 'string']);
         $resolver->setAllowedTypes('method', 'string');

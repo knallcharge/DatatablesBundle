@@ -125,6 +125,7 @@ final class DatatableQueryBuilderTest extends TestCase
         $this->entityManager->createQueryBuilder()->willReturn($this->queryBuilder->reveal());
         $this->entityManager->getConnection()->willreturn($this->connection->reveal());
         $this->columnBuilder->getColumns()->willReturn([]);
+        $this->columnBuilder->getColumnNames()->willReturn([]);
         $this->dataTable->getEntity()->willReturn($entityName);
         $this->dataTable->getEntityManager()->willReturn($this->entityManager->reveal());
         $this->dataTable->getColumnBuilder()->willReturn($this->columnBuilder->reveal());

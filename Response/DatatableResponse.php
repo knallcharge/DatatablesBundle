@@ -19,6 +19,7 @@ use Sg\DatatablesBundle\Datatable\DatatableInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+
 use function array_key_exists;
 use function count;
 use function is_array;

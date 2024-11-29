@@ -21,6 +21,7 @@ use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
+
 use function in_array;
 use function is_array;
 
@@ -315,24 +316,24 @@ abstract class AbstractColumn implements ColumnInterface
         $resolver->setDefined(['dql', 'data']);
 
         $resolver->setDefaults([
-            'cell_type'           => null,
-            'class_name'          => null,
-            'content_padding'     => null,
-            'default_content'     => null,
-            'name'                => null,
-            'orderable'           => true,
-            'order_data'          => null,
-            'order_sequence'      => null,
-            'searchable'          => true,
-            'title'               => null,
-            'visible'             => true,
-            'width'               => null,
-            'add_if'              => null,
-            'join_type'           => 'leftJoin',
-            'type_of_field'       => null,
-            'responsive_priority' => null,
-            'sent_in_response'    => true,
-        ]);
+                                   'cell_type'           => null,
+                                   'class_name'          => null,
+                                   'content_padding'     => null,
+                                   'default_content'     => null,
+                                   'name'                => null,
+                                   'orderable'           => true,
+                                   'order_data'          => null,
+                                   'order_sequence'      => null,
+                                   'searchable'          => true,
+                                   'title'               => null,
+                                   'visible'             => true,
+                                   'width'               => null,
+                                   'add_if'              => null,
+                                   'join_type'           => 'leftJoin',
+                                   'type_of_field'       => null,
+                                   'responsive_priority' => null,
+                                   'sent_in_response'    => true,
+                               ]);
 
         $resolver->setAllowedTypes('cell_type', ['null', 'string']);
         $resolver->setAllowedTypes('class_name', ['null', 'string']);

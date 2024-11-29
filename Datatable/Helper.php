@@ -12,6 +12,7 @@
 namespace Sg\DatatablesBundle\Datatable;
 
 use Random\RandomException;
+
 use function is_int;
 
 /**
@@ -37,7 +38,7 @@ class Helper
     /**
      * Returns a array notated property path for the Accessor.
      *
-     * @param string $data
+     * @param string      $data
      * @param string|null $value
      *
      * @return string
@@ -65,7 +66,7 @@ class Helper
      * Returns object notated property path.
      *
      * @param string $path
-     * @param int $key
+     * @param int    $key
      * @param string $value
      *
      * @return string

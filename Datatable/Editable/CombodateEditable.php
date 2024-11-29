@@ -97,14 +97,14 @@ class CombodateEditable extends AbstractEditable
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'format'      => 'YYYY-MM-DD',
-            'view_format' => null,
-            'min_year'    => 1970,
-            'max_year'    => 2035,
-            'minute_step' => 5,
-            'second_step' => 1,
-            'smart_days'  => false,
-        ]);
+                                   'format'      => 'YYYY-MM-DD',
+                                   'view_format' => null,
+                                   'min_year'    => 1970,
+                                   'max_year'    => 2035,
+                                   'minute_step' => 5,
+                                   'second_step' => 1,
+                                   'smart_days'  => false,
+                               ]);
 
         $resolver->setAllowedTypes('format', 'string');
         $resolver->setAllowedTypes('view_format', ['string', 'null']);

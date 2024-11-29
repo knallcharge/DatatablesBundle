@@ -12,6 +12,7 @@
 namespace Sg\DatatablesBundle\Datatable;
 
 use Closure;
+
 use function call_user_func;
 
 /**

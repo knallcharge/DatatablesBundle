@@ -1,34 +1,34 @@
 services:
-    sg_datatables.twig.extension:
-        class: Sg\DatatablesBundle\Twig\DatatableTwigExtension
-        public: false
-        tags:
-            - { name: twig.extension }
+  sg_datatables.twig.extension:
+    class: Sg\DatatablesBundle\Twig\DatatableTwigExtension
+    public: false
+    tags:
+      - { name: twig.extension }
 
-    sg_datatables.datatable.abstract:
-        class: Sg\DatatablesBundle\Datatable\AbstractDatatable
-        abstract: true
-        arguments:
-            - '@security.authorization_checker'
-            - '@security.token_storage'
-            - '@translator'
-            - '@router'
-            - '@doctrine.orm.entity_manager'
-            - '@twig'
+  sg_datatables.datatable.abstract:
+    class: Sg\DatatablesBundle\Datatable\AbstractDatatable
+    abstract: true
+    arguments:
+      - '@security.authorization_checker'
+      - '@security.token_storage'
+      - '@translator'
+      - '@router'
+      - '@doctrine.orm.entity_manager'
+      - '@twig'
 
-    sg_datatables.response:
-        class: Sg\DatatablesBundle\Response\DatatableResponse
-        public: true
-        arguments:
-            - '@request_stack'
+  sg_datatables.response:
+    class: Sg\DatatablesBundle\Response\DatatableResponse
+    public: true
+    arguments:
+      - '@request_stack'
 
-    sg_datatables.factory:
-        class: Sg\DatatablesBundle\Datatable\DatatableFactory
-        public: true
-        arguments:
-            - '@security.authorization_checker'
-            - '@security.token_storage'
-            - '@translator'
-            - '@router'
-            - '@doctrine.orm.entity_manager'
-            - '@twig'
+  sg_datatables.factory:
+    class: Sg\DatatablesBundle\Datatable\DatatableFactory
+    public: true
+    arguments:
+      - '@security.authorization_checker'
+      - '@security.token_storage'
+      - '@translator'
+      - '@router'
+      - '@doctrine.orm.entity_manager'
+      - '@twig'

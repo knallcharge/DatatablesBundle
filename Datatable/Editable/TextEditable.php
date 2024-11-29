@@ -60,9 +60,9 @@ class TextEditable extends AbstractEditable
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'clear'       => true,
-            'placeholder' => null,
-        ]);
+                                   'clear'       => true,
+                                   'placeholder' => null,
+                               ]);
 
         $resolver->setAllowedTypes('clear', 'bool');
         $resolver->setAllowedTypes('placeholder', ['null', 'string']);

@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable\Extension;
 use Exception;
 use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function in_array;
 use function is_array;
 

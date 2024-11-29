@@ -18,6 +18,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function count;
 
 /**
@@ -27,7 +28,6 @@ class Column extends AbstractColumn
 {
     // The Column is editable.
     use EditableTrait;
-
     use FilterableTrait;
 
     //-------------------------------------------------
@@ -76,7 +76,7 @@ class Column extends AbstractColumn
                     $content = $this->renderTemplate(
                         $this->accessor->getValue($row, $currentPath),
                         $row[$this->editable->getPk()],
-                        $currentObjectPath
+                        $currentObjectPath,
                     );
 
                     $this->accessor->setValue($row, $currentPath, $content);
@@ -112,7 +112,7 @@ class Column extends AbstractColumn
                     'entity_class_name'              => $this->getEntityClassName(),
                     'column_dql'                     => $this->dql,
                     'original_type_of_field'         => $this->getOriginalTypeOfField(),
-                ]
+                ],
             );
         }
 
@@ -131,9 +131,9 @@ class Column extends AbstractColumn
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'filter'   => [TextFilter::class, []],
-            'editable' => null,
-        ]);
+                                   'filter'   => [TextFilter::class, []],
+                                   'editable' => null,
+                               ]);
 
         $resolver->setAllowedTypes('filter', 'array');
         $resolver->setAllowedTypes('editable', ['null', 'array']);
@@ -149,8 +149,8 @@ class Column extends AbstractColumn
      * Render template.
      *
      * @param string|null $data
-     * @param string $pk
-     * @param null $path
+     * @param string      $pk
+     * @param null        $path
      *
      * @return string
      * @throws LoaderError
@@ -166,7 +166,7 @@ class Column extends AbstractColumn
                 'column_class_editable_selector' => $this->getColumnClassEditableSelector(),
                 'pk'                             => $pk,
                 'path'                           => $path,
-            ]
+            ],
         );
     }
 }

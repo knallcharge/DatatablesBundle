@@ -17,6 +17,7 @@ use Sg\DatatablesBundle\Datatable\Extension\Responsive;
 use Sg\DatatablesBundle\Datatable\Extension\RowGroup;
 use Sg\DatatablesBundle\Datatable\Extension\Select;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -83,11 +84,11 @@ class Extensions
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'buttons'    => null,
-            'responsive' => null,
-            'select'     => null,
-            'row_group'  => null,
-        ]);
+                                   'buttons'    => null,
+                                   'responsive' => null,
+                                   'select'     => null,
+                                   'row_group'  => null,
+                               ]);
 
         $resolver->setAllowedTypes('buttons', ['null', 'array', 'bool']);
         $resolver->setAllowedTypes('responsive', ['null', 'array', 'bool']);

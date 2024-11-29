@@ -16,6 +16,7 @@ use Sg\DatatablesBundle\Datatable\Column\ColumnInterface;
 use Sg\DatatablesBundle\Datatable\DatatableInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
+
 use function array_key_exists;
 use function call_user_func;
 use function is_callable;

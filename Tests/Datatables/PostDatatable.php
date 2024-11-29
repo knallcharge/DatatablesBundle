@@ -35,13 +35,13 @@ class PostDatatable extends AbstractDatatable
     public function buildDatatable(array $options = [])
     {
         $this->ajax->set([
-            'url'    => '',
-            'method' => 'GET',
-        ]);
+                             'url'    => '',
+                             'method' => 'GET',
+                         ]);
 
         $this->options->set([
-            'individual_filtering' => true,
-        ]);
+                                'individual_filtering' => true,
+                            ]);
 
         $this->columnBuilder
             ->add('id', Column::class, [

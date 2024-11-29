@@ -100,14 +100,14 @@ class Select2Filter extends SelectFilter
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'placeholder' => null,
-            'allow_clear' => null,
-            'tags'        => null,
-            'language'    => null,
-            'url'         => null,
-            'delay'       => 250,
-            'cache'       => true,
-        ]);
+                                   'placeholder' => null,
+                                   'allow_clear' => null,
+                                   'tags'        => null,
+                                   'language'    => null,
+                                   'url'         => null,
+                                   'delay'       => 250,
+                                   'cache'       => true,
+                               ]);
 
         $resolver->setAllowedTypes('placeholder', ['string', 'null']);
         $resolver->setAllowedTypes('allow_clear', ['bool', 'null']);

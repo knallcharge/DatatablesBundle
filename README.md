@@ -1,5 +1,4 @@
 # SgDatatablesBundle
 
-# WARNING: This repository is no longer maintained.
+## This repository is a fork of https://github.com/stwe/DatatablesBundle.
 
-# This repository will not be updated. The repository will be kept available in read-only mode.

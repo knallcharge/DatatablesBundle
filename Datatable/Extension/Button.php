@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Datatable\Extension;
 use Exception;
 use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function is_array;
 
 /**
@@ -142,20 +143,20 @@ class Button
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'action'         => null,
-            'available'      => null,
-            'class_name'     => null,
-            'destroy'        => null,
-            'enabled'        => null,
-            'extend'         => null,
-            'init'           => null,
-            'key'            => null,
-            'name'           => null,
-            'namespace'      => null,
-            'text'           => null,
-            'title_attr'     => null,
-            'button_options' => null,
-        ]);
+                                   'action'         => null,
+                                   'available'      => null,
+                                   'class_name'     => null,
+                                   'destroy'        => null,
+                                   'enabled'        => null,
+                                   'extend'         => null,
+                                   'init'           => null,
+                                   'key'            => null,
+                                   'name'           => null,
+                                   'namespace'      => null,
+                                   'text'           => null,
+                                   'title_attr'     => null,
+                                   'button_options' => null,
+                               ]);
 
         $resolver->setAllowedTypes('action', ['array', 'null']);
         $resolver->setAllowedTypes('available', ['array', 'null']);

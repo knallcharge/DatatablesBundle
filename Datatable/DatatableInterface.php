@@ -97,7 +97,7 @@ interface DatatableInterface
     /**
      * Help function to create an option array for filtering.
      *
-     * @param array $entities
+     * @param array  $entities
      * @param string $keyFrom
      * @param string $valueFrom
      *

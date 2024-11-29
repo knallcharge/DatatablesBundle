@@ -50,11 +50,11 @@ class VirtualColumn extends Column
         $resolver->remove('editable');
 
         $resolver->setDefaults([
-            'orderable'     => false,
-            'searchable'    => false,
-            'order_column'  => null,
-            'search_column' => null,
-        ]);
+                                   'orderable'     => false,
+                                   'searchable'    => false,
+                                   'order_column'  => null,
+                                   'search_column' => null,
+                               ]);
 
         $resolver->setAllowedTypes('order_column', ['null', 'string', 'array']);
         $resolver->setAllowedTypes('search_column', ['null', 'string', 'array']);

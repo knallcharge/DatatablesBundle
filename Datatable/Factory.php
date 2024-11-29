@@ -12,6 +12,7 @@
 namespace Sg\DatatablesBundle\Datatable;
 
 use Exception;
+
 use function is_string;
 
 /**

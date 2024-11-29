@@ -19,6 +19,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
+
 use function call_user_func;
 use function count;
 
@@ -58,7 +59,7 @@ class AttributeColumn extends AbstractColumn
             [
                 'attributes' => $renderAttributes,
                 'data'       => $this->accessor->getValue($row, $path),
-            ]
+            ],
         );
 
         $this->accessor->setValue($row, $path, $content);
@@ -124,9 +125,9 @@ class AttributeColumn extends AbstractColumn
         parent::configureOptions($resolver);
 
         $resolver->setDefaults([
-            'filter'     => [TextFilter::class, []],
-            'attributes' => null,
-        ]);
+                                   'filter'     => [TextFilter::class, []],
+                                   'attributes' => null,
+                               ]);
 
         $resolver->setAllowedTypes('filter', 'array');
         $resolver->setAllowedTypes('attributes', ['null', 'array', 'Closure']);
@@ -176,7 +177,7 @@ class AttributeColumn extends AbstractColumn
             $this->getCellContentTemplate(),
             [
                 'data' => $data,
-            ]
+            ],
         );
     }
 }

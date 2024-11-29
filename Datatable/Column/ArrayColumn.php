@@ -12,6 +12,7 @@
 namespace Sg\DatatablesBundle\Datatable\Column;
 
 use DateTime;
+
 use function count;
 use function is_array;
 

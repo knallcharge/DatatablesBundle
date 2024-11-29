@@ -100,14 +100,14 @@ abstract class AbstractFilter implements FilterInterface
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'search_type'      => 'like',
-            'search_column'    => null,
-            'initial_search'   => null,
-            'classes'          => null,
-            'cancel_button'    => false,
-            'placeholder'      => true,
-            'placeholder_text' => null,
-        ]);
+                                   'search_type'      => 'like',
+                                   'search_column'    => null,
+                                   'initial_search'   => null,
+                                   'classes'          => null,
+                                   'cancel_button'    => false,
+                                   'placeholder'      => true,
+                                   'placeholder_text' => null,
+                               ]);
 
         $resolver->setAllowedTypes('search_type', 'string');
         $resolver->setAllowedTypes('search_column', ['null', 'string']);
@@ -276,7 +276,7 @@ abstract class AbstractFilter implements FilterInterface
      * @param string $searchType
      * @param string $searchField
      * @param string $searchTypeOfField
-     * @param int $parameterCounter
+     * @param int    $parameterCounter
      *
      * @return Composite
      */
@@ -291,7 +291,7 @@ abstract class AbstractFilter implements FilterInterface
      * @param string $searchType
      * @param string $searchField
      * @param string $searchTypeOfField
-     * @param int $parameterCounter
+     * @param int    $parameterCounter
      *
      * @return Composite
      */
@@ -435,7 +435,7 @@ abstract class AbstractFilter implements FilterInterface
      * Get a betweenAndExpression.
      *
      * @param string $searchField
-     * @param int $parameterCounter
+     * @param int    $parameterCounter
      *
      * @return Andx
      */

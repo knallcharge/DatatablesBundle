@@ -12,6 +12,7 @@
 namespace Sg\DatatablesBundle\Datatable\Action;
 
 use Exception;
+
 use function array_key_exists;
 use function is_array;
 

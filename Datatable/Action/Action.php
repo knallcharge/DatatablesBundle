@@ -17,6 +17,7 @@ use Sg\DatatablesBundle\Datatable\HtmlContainerTrait;
 use Sg\DatatablesBundle\Datatable\OptionsTrait;
 use Sg\DatatablesBundle\Datatable\RenderIfTrait;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+
 use function array_key_exists;
 use function is_array;
 
@@ -146,20 +147,20 @@ class Action
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'route'               => null,
-            'route_parameters'    => null,
-            'icon'                => null,
-            'label'               => null,
-            'confirm'             => false,
-            'confirm_message'     => null,
-            'attributes'          => null,
-            'button'              => false,
-            'button_value'        => null,
-            'button_value_prefix' => false,
-            'render_if'           => null,
-            'start_html'          => null,
-            'end_html'            => null,
-        ]);
+                                   'route'               => null,
+                                   'route_parameters'    => null,
+                                   'icon'                => null,
+                                   'label'               => null,
+                                   'confirm'             => false,
+                                   'confirm_message'     => null,
+                                   'attributes'          => null,
+                                   'button'              => false,
+                                   'button_value'        => null,
+                                   'button_value_prefix' => false,
+                                   'render_if'           => null,
+                                   'start_html'          => null,
+                                   'end_html'            => null,
+                               ]);
 
         $resolver->setAllowedTypes('route', ['null', 'string']);
         $resolver->setAllowedTypes('route_parameters', ['null', 'array', 'Closure']);
