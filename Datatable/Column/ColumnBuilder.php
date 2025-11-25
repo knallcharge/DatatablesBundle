@@ -333,9 +333,9 @@ class ColumnBuilder
     private function addColumn($dql, AbstractColumn $column): void
     {
         if ($column->callAddIfClosure() === true) {
-            $this->columns[]         = $column;
-            $index                   = count($this->columns) - 1;
-            $this->columnNames[$dql] = $index;
+            $this->columns[]                 = $column;
+            $index                           = count($this->columns) - 1;
+            $this->columnNames[(string)$dql] = $index;
             $column->setIndex($index);
 
             // Use the Column-Index as data source for Columns with 'dql' === null
