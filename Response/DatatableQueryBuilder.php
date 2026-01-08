@@ -665,12 +665,12 @@ class DatatableQueryBuilder
      */
     private function addSelectColumn($columnTableName, $data): void
     {
-        if (isset($this->selectColumns[$columnTableName])) {
+        if (isset($this->selectColumns[(string)$columnTableName])) {
             if (!in_array($data, $this->selectColumns[$columnTableName], true)) {
                 $this->selectColumns[$columnTableName][] = $data;
             }
         } else {
-            $this->selectColumns[$columnTableName][] = $data;
+            $this->selectColumns[(string)$columnTableName][] = $data;
         }
     }
 
