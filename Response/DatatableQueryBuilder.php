@@ -208,7 +208,7 @@ class DatatableQueryBuilder
         $this->em = $datatable->getEntityManager();
 
         $this->metadata        = $this->getMetadata($datatable->getEntity());
-        $this->entityShortName = $this->getSafeName(strtolower($this->metadata->getReflectionClass()->getShortName()));
+        $this->entityShortName = strtolower($this->metadata->getReflectionClass()->getShortName());
 
         $this->rootEntityIdentifier = $this->getIdentifier($this->metadata);
 
@@ -428,7 +428,6 @@ class DatatableQueryBuilder
 
                     $currentPart  = array_shift($parts);
                     $currentAlias = ($previousPart === $this->entityShortName ? '' : $previousPart . '_') . $currentPart;
-                    $currentAlias = $this->getSafeName($currentAlias);
 
                     if (!array_key_exists($previousAlias . '.' . $currentPart, $this->joins)) {
                         $this->addJoin($previousAlias . '.' . $currentPart, $currentAlias, $this->accessor->getValue($column, 'joinType'));
@@ -752,25 +751,6 @@ class DatatableQueryBuilder
         }
 
         return $metadata;
-    }
-
-    /**
-     * Get safe name.
-     *
-     * @param $name
-     *
-     * @return string
-     */
-    private function getSafeName($name): string
-    {
-        try {
-            $reservedKeywordsList = $this->em->getConnection()->getDatabasePlatform()?->getReservedKeywordsList();
-            $isReservedKeyword    = $reservedKeywordsList->isKeyword($name);
-        } catch (DBALException) {
-            $isReservedKeyword = false;
-        }
-
-        return $isReservedKeyword ? "_$name" : $name;
     }
 
     /**
