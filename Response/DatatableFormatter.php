@@ -14,6 +14,7 @@ namespace Sg\DatatablesBundle\Response;
 use Doctrine\ORM\Tools\Pagination\Paginator;
 use Sg\DatatablesBundle\Datatable\Column\ColumnInterface;
 use Sg\DatatablesBundle\Datatable\DatatableInterface;
+use Sg\DatatablesBundle\Datatable\RowsPreloaderInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
@@ -60,6 +61,7 @@ class DatatableFormatter
         $lineFormatter = $datatable->getLineFormatter();
         $columns       = $datatable->getColumnBuilder()->getColumns();
 
+        $rows = [];
         foreach ($paginator as $row) {
             // Adding custom DQL fields make PARTIAL columns stored in key 0
             if (isset($row[0])) {
@@ -93,9 +95,19 @@ class DatatableFormatter
                 }
             }
 
+            $rows[] = $row;
+        }
+
+        // Let the datatable batch-load anything its lineFormatter needs (e.g. warm up the
+        // entity manager's identity map) once for the whole page, instead of once per row.
+        if ($datatable instanceof RowsPreloaderInterface) {
+            $datatable->preloadRows($rows);
+        }
+
+        foreach ($rows as $row) {
             // 2. Call the the lineFormatter to format row items
             if ($lineFormatter !== null && is_callable($lineFormatter)) {
-                $row = call_user_func($datatable->getLineFormatter(), $row);
+                $row = call_user_func($lineFormatter, $row);
             }
 
             /** @var ColumnInterface $column */
